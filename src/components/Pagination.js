@@ -5,7 +5,7 @@ import { AppContext } from '../context/AppContext';
 const Pagination = () => {
   const {page, totalPages, handlePageChange} = useContext(AppContext);
   return (
-    <div className=' bg-gradient-to-t from-orange-200 to-purple-200 w-screen fixed bottom-0 flex p-3 place-content-between'>
+    <div className='bg-gradient-to-t from-orange-200 to-purple-200/70 backdrop-blur-sm w-screen fixed bottom-0 flex p-3 place-content-between'>
       <div className='flex gap-x-3'>
         {
           page>1 &&
@@ -21,7 +21,7 @@ const Pagination = () => {
         }
       </div>
 
-      <div className='flex items-center font-bold'>
+      <div className='flex items-center font-bold px-3'>
         Page {page} of {totalPages}
       </div>
     </div>
