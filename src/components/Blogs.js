@@ -1,8 +1,9 @@
 import React from 'react'
+import Spinner from './Spinner'
 
 const Blogs = () => {
   return (
-    <div>Blogs</div>
+    <div><Spinner/></div>
   )
 }
 
