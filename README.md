@@ -5,5 +5,8 @@ https://demo-blogs.vercel.app/
 
 
 
-https://github.com/KeplerInCoding/Blogs/assets/97353931/cd9f326d-5b72-4294-80eb-5d9d85523060
+
+https://github.com/KeplerInCoding/Blogs/assets/97353931/de4ad9cd-adf9-402a-ba6d-68c94e5430d1
+
+
 
