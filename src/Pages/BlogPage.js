@@ -1,8 +1,7 @@
 import React, { useContext } from 'react'
 import { useState, useEffect } from 'react';
 import { AppContext } from '../context/AppContext';
-import { useLocation } from 'react-router-dom';
-import { useNavigation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { baseUrl } from '../baseUrl';
 import Spinner from '../components/Spinner';
 import Header from '../components/Header';
@@ -11,19 +10,22 @@ import BlogDetails from '../components/BlogDetails';
 
 
 const BlogPage = () => {
+  const newUrl = "https://codehelp-apis.vercel.app/api/";
   const [blog, setBlog] = useState(null);
-  const [relatedBlogs, setRelatedBlogs] = useState([]);
+  const [relatedblogs, setRelatedBlogs] = useState([]);
   const location = useLocation();
-  const navigation = useNavigation();
+  const navigation = useNavigate();
   const {loading, setLoading}= useContext(AppContext);
   const blogId = location.pathname.split("/").at(-1);
 
   async function fetchRelatedBlogs(){
     setLoading(true);
-    let url = `${baseUrl}?blogId=${blogId}`;
+    let url = `${newUrl}get-blog?blogId=${blogId}`;
     try{
       const res = await fetch(url);
       const data = await res.json();
+      setBlog(data.blog);
+      setRelatedBlogs(data.relatedBlogs);
 
     }
     catch(error){
@@ -56,7 +58,7 @@ const BlogPage = () => {
           <BlogDetails post={blog}/>
           <h2>Related Blogs</h2>
           {
-            relatedBlogs.map((post)=>(
+            relatedblogs.map((post)=>(
               <div key = {post.id}>
                 <BlogDetails post = {post}/>
               </div>
