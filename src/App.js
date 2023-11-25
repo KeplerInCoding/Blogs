@@ -17,37 +17,32 @@ import { useLocation } from "react-router-dom";
 
 
 export default function App() {
-
-  const {fetchData} = useContext(AppContext);
+  const { fetchData } = useContext(AppContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
 
-  useEffect(()=>{
-    const page = searchParams.get("page")??1;
+  useEffect(() => {
+    const page = searchParams.get("page") ?? 1;
 
-    if(location.pathname.includes("tags")){
-      const tag = location.pathname.split("/").at(-1).replaceAll("-"," ");
+    if (location.pathname.includes("tags")) {
+      const tag = location.pathname.split("/").at(-1).replaceAll("-", " ");
       fetchData(Number(page), tag);
-    }
-    else if(location.pathname.includes("categories")){
-      const category = location.pathname.split("/").at(-1).replaceAll("-"," ");
+    } else if (location.pathname.includes("categories")) {
+      const category = location.pathname.split("/").at(-1).replaceAll("-", " ");
       fetchData(Number(page), null, category);
-    }
-    else{
+    } else {
       fetchData(Number(page));
     }
+  }, [location.pathname, location.search]);
 
-  },[location.pathname, location.search]);
-
-  return <div>
-    {/* <Header/>
-    <Blogs/>
-    <Pagination/> */}
-    <Routes>
-      <Route to="/" element={<Home/>}/>
-      <Route to="/blogs/:blogId" element={<BlogPage/>}/>
-      <Route to="/tags/:tag" element={<TagPage/>}/>
-      <Route to="/categories/:category" element={<CategoryPage/>}/>
-    </Routes>
-  </div>;
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blogs/:blogId" element={<BlogPage />} />
+        <Route path="/tags/:tag" element={<TagPage />} />
+        <Route path="/categories/:category" element={<CategoryPage />} />
+      </Routes>
+    </div>
+  );
 }
