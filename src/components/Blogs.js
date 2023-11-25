@@ -6,7 +6,7 @@ import BlogDetails from './BlogDetails';
 const Blogs = () => {
   const {loading, posts} = useContext(AppContext);
   return (
-    <div className='my-16 flex flex-col items-center '>
+    <div>
       {
         loading ? (<Spinner/>):
         (posts.lenght===0?(<div>NO POSTS FOUND</div>):

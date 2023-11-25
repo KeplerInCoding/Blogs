@@ -8,7 +8,9 @@ const Home = () => {
   return (
     <div>
     <Header/>
+    <div className="my-16">
     <Blogs/>
+    </div>
     <Pagination/>
     </div>
   )

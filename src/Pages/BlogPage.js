@@ -45,15 +45,16 @@ const BlogPage = () => {
   return (
     <div>
       <Header />
-      <div>
-        <button onClick={() => navigation(-1)}>Back</button>
+      <div className='my-16'>
+      <div className='flex flex-col items-center justify-center '>
+        <button className='px-3 py-1 bg-gradient-to-br from-red-500 to-slate-50 font-bold border border-black rounded-full hover:bg-gradient-to-tl hover:from-red-200 hover:to-slate-50' onClick={() => navigation(-1)}>Back</button>
       </div>
       {loading ? (
         <Spinner />
       ) : blog ? (
         <div>
           <BlogDetails post={blog} />
-          <h2>Related Blogs</h2>
+          <h2 className='text-center text-4xl m-3 text-cyan-700 font-extrabold'>Related Blogs</h2>
           {relatedblogs.map((post) => (
             <div key={post.id}>
               <BlogDetails post={post} />
@@ -65,6 +66,7 @@ const BlogPage = () => {
           <p>No Blog Found</p>
         </div>
       )}
+      </div>
     </div>
   );
 };
