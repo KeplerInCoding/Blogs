@@ -16,7 +16,7 @@ const TagPage = () => {
         <button className='px-3 py-1 bg-gradient-to-br from-red-500 to-slate-50 font-bold border border-black rounded-full hover:bg-gradient-to-tl hover:from-red-200 hover:to-slate-50' onClick={() => navigation(-1)}>
           Back
         </button>
-        <h2 className='text-center text-4xl m-3 text-cyan-700 font-extrabold'>
+        <h2 className='text-center text-3xl m-3 text-cyan-700 font-extrabold'>
           Blogs Tagged <span>#{tag}</span>
         </h2>
       </div>

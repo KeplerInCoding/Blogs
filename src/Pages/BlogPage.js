@@ -54,7 +54,7 @@ const BlogPage = () => {
       ) : blog ? (
         <div>
           <BlogDetails post={blog} />
-          <h2 className='text-center text-4xl m-3 text-cyan-700 font-extrabold'>Related Blogs</h2>
+          <h2 className='text-center text-3xl m-3 text-cyan-700 font-extrabold'>Related Blogs</h2>
           {relatedblogs.map((post) => (
             <div key={post.id}>
               <BlogDetails post={post} />
